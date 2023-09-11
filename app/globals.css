@@ -13,15 +13,15 @@
   text-shadow: 0px 0px 12px orange;
 }
 
-body {
+html, body {
   background-color: black;
+  width: 100vw;
 }
 
 input, textarea {
   color: black;
 }
 
-.section {
-  width: 75vw;
+input, textarea, ul {
+  width: 90vw;
 }
-

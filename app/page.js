@@ -26,16 +26,18 @@ const page = () => {
   if(mainTask.length>0){
     renderTask = mainTask.map((t,i)=>{
     return (
-      <li key={i} className='flex items-center justify-between mb-8'>
-        <div className='flex justify-between w-2/3 items-center'>
-          <h5 className='text-2xl font-semibold'>{t.title}</h5>
-          <h6 className='text-lg font-medium'>{t.desc}</h6>
-        </div>
+      <li key={i} className='flex items-center justify-between mt-8 mb-8'>
+          <div className='flex items-center'>
+            <h5 className='text-2xl font-semibold'>{t.title}</h5>
+          </div>
+          <div className='flex items-center'>
+            <h6 className='text-lg font-medium'>{t.desc}</h6>
+          </div>
         <button 
           onClick={() => {
             deleteHandler(i)
           }}
-          className='bg-orange-500 hover:bg-orange-700 text-white py-2 w-1/6 rounded focus:outline-none'
+          className='bg-orange-500 hover:bg-orange-700 text-white py-2 w-1/4 rounded focus:outline-none'
         >Delete</button>
       </li>
     )})
@@ -43,10 +45,10 @@ const page = () => {
 
   return (
     <div className='flex flex-col items-center'>
-      <div className='p-4 flex flex-col section'>
+      <div className='p-4 flex flex-col'>
         <h1 className='text-center text-3xl'>TODO LIST</h1>
         <form onSubmit={submitHandler} className='flex flex-col m-5 px-52 py-5'>
-          <label for='task' className='mr-2 '>Task Name</label>
+          <label for='task' className='mr-2'>Task Name</label>
           <input 
             type='text' 
             id='task'
@@ -71,16 +73,13 @@ const page = () => {
           ></textarea>
           <button 
             type='submit' 
-            className='bg-orange-500 hover:bg-orange-700 text-white mt-5 py-2 w-1/5 rounded focus:outline-none '
+            className='bg-orange-500 hover:bg-orange-700 text-white mt-5 py-2 rounded focus:outline-none '
           >Add Task!</button>
         </form>
-        <div>
-          <ul>
-            {renderTask}
-          </ul>
-        </div>
-        
       </div>
+      <ul>
+            {renderTask}
+      </ul>
     </div>
   )
 }
